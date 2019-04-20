@@ -46,6 +46,7 @@ public:
     float billboardSizeTarget[NUM_BILLBOARDS];
     ofShader billboardShader;
     ofImage texture;
+    Trail billboardTrail;
 
 	// Caching the previous frame make it easy to get the delta
 	uint64_t previousMicroseconds = 0;

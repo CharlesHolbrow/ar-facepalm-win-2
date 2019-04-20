@@ -207,6 +207,7 @@ C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\receiver.cpp" />
+    <ClCompile Include="src\trail.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h" />

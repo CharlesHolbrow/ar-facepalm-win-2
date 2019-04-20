@@ -58,6 +58,9 @@
     <ClCompile Include="src\receiver.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\trail.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
