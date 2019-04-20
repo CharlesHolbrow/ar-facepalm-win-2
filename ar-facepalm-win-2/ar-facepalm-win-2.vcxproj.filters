@@ -25,12 +25,6 @@
     <ClCompile Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp">
       <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\NetworkingUtils.cpp">
-      <Filter>addons\ofxOsc\libs\oscpack\src\ip\posix</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\UdpSocket.cpp">
-      <Filter>addons\ofxOsc\libs\oscpack\src\ip\posix</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp">
       <Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
     </ClCompile>
@@ -48,6 +42,21 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
       <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\content.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\customJson.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gesture.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gesturePlayhead.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\receiver.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,9 +83,6 @@
     </Filter>
     <Filter Include="addons\ofxOsc\libs\oscpack\src\ip">
       <UniqueIdentifier>{61a8496d-7515-4ca2-907f-0e7a7ff54d0e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOsc\libs\oscpack\src\ip\posix">
-      <UniqueIdentifier>{bc9f4b7b-c0e1-43c6-951d-382e86d7b9cc}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons\ofxOsc\libs\oscpack\src\ip\win32">
       <UniqueIdentifier>{afbcd182-75dd-41bf-aaa4-46ef79a8573d}</UniqueIdentifier>
@@ -148,6 +154,39 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h">
       <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\content.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\customJson.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\filter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gesture.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gesturePlayhead.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\json.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\msgDelay.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofJson.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\receiver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\stepper.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\trail.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

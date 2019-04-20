@@ -96,13 +96,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\src;
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\src;C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;../../../../addons/ofxVideoRecorder/src/;../../../../addons/ofxPoco/src/;../../../../addons/ofxPoco/libs/poco/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -148,13 +142,7 @@ C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\src;
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;
-C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\src;C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;../../../../addons/ofxVideoRecorder/src/;../../../../addons/ofxPoco/src/;../../../../addons/ofxPoco/libs/poco/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -201,8 +189,6 @@ C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\NetworkingUtils.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\UdpSocket.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocket.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp" />
@@ -214,8 +200,13 @@ C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc
     <ClCompile Include="..\..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxOsc\src\ofxOscSender.cpp" />
+    <ClCompile Include="src\content.cpp" />
+    <ClCompile Include="src\customJson.cpp" />
+    <ClCompile Include="src\gesture.cpp" />
+    <ClCompile Include="src\gesturePlayhead.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
+    <ClCompile Include="src\receiver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h" />
@@ -238,7 +229,18 @@ C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc
     <ClInclude Include="..\..\..\..\addons\ofxOsc\src\ofxOscParameterSync.h" />
     <ClInclude Include="..\..\..\..\addons\ofxOsc\src\ofxOscReceiver.h" />
     <ClInclude Include="..\..\..\..\addons\ofxOsc\src\ofxOscSender.h" />
+    <ClInclude Include="src\content.h" />
+    <ClInclude Include="src\customJson.h" />
+    <ClInclude Include="src\filter.h" />
+    <ClInclude Include="src\gesture.h" />
+    <ClInclude Include="src\gesturePlayhead.h" />
+    <ClInclude Include="src\json.hpp" />
+    <ClInclude Include="src\msgDelay.h" />
     <ClInclude Include="src\ofApp.h" />
+    <ClInclude Include="src\ofJson.h" />
+    <ClInclude Include="src\receiver.h" />
+    <ClInclude Include="src\stepper.h" />
+    <ClInclude Include="src\trail.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
