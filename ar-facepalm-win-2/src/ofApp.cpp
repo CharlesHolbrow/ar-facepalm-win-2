@@ -21,44 +21,9 @@ void ofApp::setup() {
     ofLog() << "cam far clip  " << cam.getFarClip();
     ofLog() << "cam near clip " << cam.getNearClip();
 	//cam.setAspectRatio(float) // By default the screen size is used
-    setupBillboards();
 }
 
 //--------------------------BILLBOARDS---------------------------
-void ofApp::setupBillboards() {
-    billboards.getVertices().resize(NUM_BILLBOARDS);
-    billboards.getColors().resize(NUM_BILLBOARDS);
-    billboards.getNormals().resize(NUM_BILLBOARDS, ofVec3f(0));
-
-    for (int i = 0; i < NUM_BILLBOARDS; i++) {
-        float v = i / 1000.;
-        Particle p;
-        p.pos = { v - 1, 0, 0 };
-        p.size = .2;
-        p.ofc = ofColor::fromHsb(int(i / 10.) % 256, 255, 255);
-        billboardTrail.parts.push_back(p);
-
-    }
-    billboards.setUsage(GL_DYNAMIC_DRAW);
-    billboards.setMode(OF_PRIMITIVE_POINTS);
-    //billboardVbo.setVertexData(billboardVerts, NUM_BILLBOARDS, GL_DYNAMIC_DRAW);
-    //billboardVbo.setColorData(billboardColor, NUM_BILLBOARDS, GL_DYNAMIC_DRAW);
-
-    // load the billboard shader
-    // this is used to change the
-    // size of the particle
-    if (ofIsGLProgrammableRenderer()) {
-        billboardShader.load("shadersGL3/Billboard");
-    }
-    else {
-        billboardShader.load("shadersGL2/Billboard");
-    }
-    // we need to disable ARB textures in order to use normalized texcoords
-    ofDisableArbTex();
-    texture.load("dot.big.png");
-    ofEnableAlphaBlending();
-}
-
 
 //--------------------------------------------------------------
 void ofApp::update() {
@@ -137,18 +102,6 @@ void ofApp::update() {
 
 	previousMicroseconds = microseconds;
 	previousMouse = mouse;
-
-    // billboard stufff
-    billboardTrail.sortForRender(cam.getGlobalPosition());
-    int i = 0;
-    for (auto p = billboardTrail.parts.begin(); p != billboardTrail.parts.end(); p++) {
-        if (i >= NUM_BILLBOARDS) break;
-        billboards.getVertices()[i] = p->pos;
-        billboards.getColors()[i].set(p->ofc);
-        billboardSizeTarget[i] = .1;
-        billboards.setNormal(i, ofVec3f(p->size, 0, 0)); // first value is the size
-        i++;
-    }
 }
 
 //--------------------------------------------------------------
@@ -182,19 +135,6 @@ void ofApp::draw() {
 	n.setPosition(controller.pos);
 	n.setScale((controller.trigger + 1) * 0.001);
 	n.draw();
-
-   
-    // bind the shader so that wee can change the
-    // size of the points via the vert shader
-    billboardShader.begin();  // BEGIN BILLBOARDS!!!!!!!!!
-    ofDisableDepthTest();
-    ofEnablePointSprites();   // not needed for GL3/4
-    texture.getTexture().bind();
-    billboards.draw();
-    texture.getTexture().unbind();
-    ofDisablePointSprites();  // not needed for GL3/4
-    ofEnableDepthTest();
-    billboardShader.end();    // END BILLBOARDS!!!!!!!!!
 
 	cam.end();
 

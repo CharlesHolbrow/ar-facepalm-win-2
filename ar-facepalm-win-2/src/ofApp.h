@@ -39,15 +39,6 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
-    // stuff for billboards
-    void setupBillboards();
-    ofVboMesh billboards;
-    int billboardIndex = 0;
-    float billboardSizeTarget[NUM_BILLBOARDS];
-    ofShader billboardShader;
-    ofImage texture;
-    Trail billboardTrail;
-
 	// Caching the previous frame make it easy to get the delta
 	uint64_t previousMicroseconds = 0;
 	MouseEvent previousMouse;
