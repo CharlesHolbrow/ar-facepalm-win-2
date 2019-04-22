@@ -23,6 +23,7 @@ public:
     Gesture* mainGesture;
     map<string, Gesture> gestures;
     list<Trail> trails;
+    ofColor baseColor;
 
     void update(Stepper stepper, MouseEvent mouse);
     void render();

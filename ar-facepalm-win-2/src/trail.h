@@ -18,12 +18,10 @@ public:
     ofVec3f pos;
     ofVec3f velocity;
     double size;
-    ofColor ofc = WHITE;
+    float age = 0;
 
     void update(double deltaTime);
-    ofColor color();
     bool isDead();
-    void render();
 };
 
 class Trail {
@@ -43,9 +41,6 @@ public:
     // Add a single particle, and update with deltaTime. Calls ofGetStyle for color.
     void add(ofVec3f pos, double size);
 
-    // Draw the trail
-    void render();
-    
     bool isDead();
 };
 

@@ -98,6 +98,10 @@ void ofApp::update() {
 	cam.setFov(receiver.getFov()); // Can also set this in the main view
 
 	// tick our content
+    content.baseColor = ofColor(
+        127. + 64. * sin(stepper.stepZeroTime),
+        200. + 50 * cos(stepper.stepZeroTime * 0.1),
+        127. + 127. * cos(stepper.stepZeroTime* 0.0001));
 	content.update(stepper, mouse);
 
 	previousMicroseconds = microseconds;

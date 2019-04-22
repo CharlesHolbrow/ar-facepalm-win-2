@@ -46,7 +46,7 @@ void Content::update(Stepper stepper, MouseEvent mouse){
         Trail t;
         t.playhead.init(mainGesture);
         trails.push_back(t);
-        ofLog() << "Creating player with ID: " << g.id  << " Gestures.size(): " << gestures.size();
+        ofLog() << "Creating gesture with ID: " << g.id  << " Gestures.size(): " << gestures.size();
     }
 
     if (mainGesture != NULL) {
@@ -72,11 +72,12 @@ void Content::update(Stepper stepper, MouseEvent mouse){
             if (i >= circles.size()) break;
             n.setScale(p->size);
             n.setPosition(p->pos);
-            circles.setColor(i, p->color());
+            ofColor color = baseColor;
+            color.lerp(ofColor::black, ofMap(p->age, 0, 20, 0.1, 1, true));
+            circles.setColor(i, color);
             circles.setMatrix(i, n.getLocalTransformMatrix());
             i++;
         }
-        //ofLog() << "Trail Size: " << trail->parts.size();
     }
     // This is a little hacky, but we don't actually want to render all our
     // circles. For now, I'm just moving unused circules really far away.
