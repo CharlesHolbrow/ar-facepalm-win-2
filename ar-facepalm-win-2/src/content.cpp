@@ -22,10 +22,13 @@ string randomString(int size) {
 
 
 Content::Content() {
-    circles.setGeometry(30, 0.01);
-    circles.resize(1000);
+    circles.setGeometry(32, 1);
+    circles.resize(10000);
+
+    ofNode n;
     for (size_t i = 0; i < circles.size(); i++) {
-        ofNode n;
+        n.resetTransform();
+        n.setScale(0);
         n.setPosition(ofRandom(-2, 2), ofRandom(-2, 2), ofRandom(0 - 2, 2));
         circles.setMatrix(i, n.getLocalTransformMatrix());
         circles.setColor(i, ofColor::fromHsb(ofRandom(100, 120), 255, 255));
@@ -61,13 +64,22 @@ void Content::update(Stepper stepper, MouseEvent mouse){
     }
 
     // deal with the circles
+    ofNode n;
+    size_t i = 0;
+    for (auto trail = trails.begin(); trail != trails.end(); trail++) {
+        for (auto p = trail->parts.begin(); p != trail->parts.end(); p++) {
+            if (i >= circles.size()) break;
+            n.setScale(p->size);
+            n.setPosition(p->pos);
+            circles.setColor(i, p->color());
+            circles.setMatrix(i, n.getLocalTransformMatrix());
+            i++;
+        }
+    }
     circles.updateGpu();
 };
 
 void Content::render() {
-    for (auto trail = trails.begin(); trail != trails.end(); trail++) {
-        trail->render();
-    }
     circles.draw();
 };
 
