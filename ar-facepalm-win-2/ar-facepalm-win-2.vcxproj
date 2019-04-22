@@ -200,6 +200,7 @@ C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc
     <ClCompile Include="..\..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxOsc\src\ofxOscSender.cpp" />
+    <ClCompile Include="src\Circles.cpp" />
     <ClCompile Include="src\content.cpp" />
     <ClCompile Include="src\customJson.cpp" />
     <ClCompile Include="src\gesture.cpp" />
@@ -230,6 +231,7 @@ C:\projects-charles\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc
     <ClInclude Include="..\..\..\..\addons\ofxOsc\src\ofxOscParameterSync.h" />
     <ClInclude Include="..\..\..\..\addons\ofxOsc\src\ofxOscReceiver.h" />
     <ClInclude Include="..\..\..\..\addons\ofxOsc\src\ofxOscSender.h" />
+    <ClInclude Include="src\Circles.h" />
     <ClInclude Include="src\content.h" />
     <ClInclude Include="src\customJson.h" />
     <ClInclude Include="src\filter.h" />

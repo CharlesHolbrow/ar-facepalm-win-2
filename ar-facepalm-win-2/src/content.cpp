@@ -21,6 +21,18 @@ string randomString(int size) {
 };
 
 
+Content::Content() {
+    circles.setGeometry(30, 0.01);
+    circles.resize(1000);
+    for (size_t i = 0; i < circles.size(); i++) {
+        ofNode n;
+        n.setPosition(ofRandom(-2, 2), ofRandom(-2, 2), ofRandom(0 - 2, 2));
+        circles.setMatrix(i, n.getLocalTransformMatrix());
+        circles.setColor(i, ofColor::fromHsb(ofRandom(100, 120), 255, 255));
+    }
+}
+
+
 void Content::update(Stepper stepper, MouseEvent mouse){
     // If there is no current target, create one
     if (mouse.press && mainGesture == NULL) {
@@ -47,12 +59,16 @@ void Content::update(Stepper stepper, MouseEvent mouse){
         ofLog() << "removing trail!";
         trails.pop_front();
     }
+
+    // deal with the circles
+    circles.updateGpu();
 };
 
 void Content::render() {
     for (auto trail = trails.begin(); trail != trails.end(); trail++) {
         trail->render();
     }
+    circles.draw();
 };
 
 void Content::replayMainGesture() {

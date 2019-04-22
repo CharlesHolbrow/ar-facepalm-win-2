@@ -7,6 +7,7 @@
 #include "trail.h"
 #include "stepper.h"
 #include "ofMain.h"
+#include "Circles.h"
 
 using namespace std;
 
@@ -15,8 +16,10 @@ string randomString(int size);
 class Content {
 private:
     map<int, vector<string>> keymap;
+    Circles circles;
 
 public:
+    Content();
     Gesture* mainGesture;
     map<string, Gesture> gestures;
     list<Trail> trails;
