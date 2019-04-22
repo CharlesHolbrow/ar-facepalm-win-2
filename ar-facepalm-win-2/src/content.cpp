@@ -80,7 +80,7 @@ void Content::update(Stepper stepper, MouseEvent mouse){
         }
     }
     // This is a little hacky, but we don't actually want to render all our
-    // circles. For now, I'm just moving unused circules really far away.
+    // circles. For now, I'm just moving unused circles really far away.
     // a better solution would be to update the draw method of the circles class
     // 
     // If there are any circles that we did not update, move them out of the way. 
