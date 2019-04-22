@@ -1,7 +1,5 @@
 #include "trail.h"
 
-ofVec3f Particle::cameraPosition;
-
 void Particle::update(double deltaTime) {
     pos += velocity * deltaTime;
     size -= 0.0006 * deltaTime;
@@ -20,15 +18,6 @@ bool Particle::isDead() {
 void Particle::render() {
     ofSetColor(color());
     ofDrawCircle(pos.x, pos.y, pos.z, size);
-};
-
-// We want to draw particles farthest from the camera first. That means the
-// largest distances should be considered "lowest" values so they appear
-// first in the sorted list.
-bool Particle::operator <(const Particle other) {
-    float myDistance = this->pos.squareDistance(cameraPosition);
-    float otherDistance = other.pos.squareDistance(cameraPosition);
-    return myDistance > otherDistance;
 };
 
 
@@ -88,10 +77,4 @@ bool Trail::isDead() {
 
     // verify playback is complete AND there are no remaining blips
     return playhead.playbackComplete() && parts.empty();
-};
-
-void Trail::sortForRender(ofVec3f cameraPosition) {
-    if (parts.size() == 0) return;
-    parts.front().cameraPosition = cameraPosition;
-    parts.sort();
 };

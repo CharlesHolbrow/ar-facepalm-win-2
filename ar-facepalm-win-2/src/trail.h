@@ -18,14 +18,12 @@ public:
     ofVec3f pos;
     ofVec3f velocity;
     double size;
-    static ofVec3f cameraPosition; // used to sort
     ofColor ofc = WHITE;
 
     void update(double deltaTime);
     ofColor color();
     bool isDead();
     void render();
-    bool operator <(const Particle other);
 };
 
 class Trail {
@@ -49,8 +47,6 @@ public:
     void render();
     
     bool isDead();
-
-    void sortForRender(ofVec3f cameraPosition);
 };
 
 

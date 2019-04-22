@@ -23,7 +23,7 @@ string randomString(int size) {
 
 Content::Content() {
     circles.setGeometry(32, 1);
-    circles.resize(10000);
+    circles.resize(20000);
 
     ofNode n;
     for (size_t i = 0; i < circles.size(); i++) {
@@ -66,8 +66,9 @@ void Content::update(Stepper stepper, MouseEvent mouse){
     // deal with the circles
     ofNode n;
     size_t i = 0;
-    for (auto trail = trails.begin(); trail != trails.end(); trail++) {
-        for (auto p = trail->parts.begin(); p != trail->parts.end(); p++) {
+    // iterate over trails in reverse order. We want to draw the most recent first
+    for (auto trail = trails.rbegin(); trail != trails.rend(); trail++) {
+        for (auto p = trail->parts.rbegin(); p != trail->parts.rend(); p++) {
             if (i >= circles.size()) break;
             n.setScale(p->size);
             n.setPosition(p->pos);
@@ -75,6 +76,17 @@ void Content::update(Stepper stepper, MouseEvent mouse){
             circles.setMatrix(i, n.getLocalTransformMatrix());
             i++;
         }
+        //ofLog() << "Trail Size: " << trail->parts.size();
+    }
+    // This is a little hacky, but we don't actually want to render all our
+    // circles. For now, I'm just moving unused circules really far away.
+    // a better solution would be to update the draw method of the circles class
+    // 
+    // If there are any circles that we did not update, move them out of the way. 
+    for (i; i < circles.size(); i++) {
+        n.setPosition(100000, 100000, 100000);
+        n.setScale(0);
+        circles.setMatrix(i, n.getLocalTransformMatrix());
     }
     circles.updateGpu();
 };
