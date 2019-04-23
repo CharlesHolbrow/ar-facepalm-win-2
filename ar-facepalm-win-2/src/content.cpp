@@ -4,7 +4,9 @@
 //
 //  Created by Charles Holbrow on 11/30/18.
 //
+
 #include "content.h"
+#include <math.h>
 
 string randomString(int size) {
     string result;
@@ -72,7 +74,12 @@ void Content::update(Stepper stepper, MouseEvent mouse){
             if (i >= circles.size()) break;
             n.setScale(p->size);
             n.setPosition(p->pos);
-            ofColor color = baseColor;
+            float slow = externalTime;
+            ofColor color = ofColor::fromHsb(
+                fmod(ofMap(p->age, 0, 10, slow, slow+80, false), 255), // change color as we age
+                saturation * 255,
+                brightness * 255
+            );
             color.lerp(ofColor::black, ofMap(p->age, 0, 20, 0.1, 1, true));
             circles.setColor(i, color);
             circles.setMatrix(i, n.getLocalTransformMatrix());

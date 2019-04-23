@@ -28,6 +28,8 @@ public:
     double getDelay();
     Orientation7 getController();
 	Orientation7 getPreviousCameraTrigger();
+    double getBigwigPosition();
+    int getBigwigLevel();
 protected:
     MsgDelay<Orientation7> cameraMessages;
     ofxOscReceiver oscReceiver;
@@ -36,6 +38,8 @@ protected:
     double fov = 24.9;
     double scale = 1.;
     double delay = 0.00;
+    double bitwigPosition = 0;
+    int bitwigLevel = 0;
 	// if the camera controlled by /controller/1 (not /tracker/0), then store the
 	// position of the last trigger press on the /controller/1 here.
 	Orientation7 previousCameraTrigger;

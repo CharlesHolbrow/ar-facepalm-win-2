@@ -23,7 +23,11 @@ public:
     Gesture* mainGesture;
     map<string, Gesture> gestures;
     list<Trail> trails;
+    // set the colors to control how things look
     ofColor baseColor;
+    double externalTime;
+    float saturation; //  set me! 0-1
+    float brightness = 1.;
 
     void update(Stepper stepper, MouseEvent mouse);
     void render();

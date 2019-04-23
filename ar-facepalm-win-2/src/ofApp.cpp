@@ -1,4 +1,5 @@
 #include "ofApp.h"
+#include <math.h> // fmod - floating ponit modulus
 
 //--------------------------------------------------------------
 void ofApp::setup() {
@@ -98,10 +99,15 @@ void ofApp::update() {
 	cam.setFov(receiver.getFov()); // Can also set this in the main view
 
 	// tick our content
-    content.baseColor = ofColor(
+    /*content.baseColor = ofColor(
         127. + 64. * sin(stepper.stepZeroTime),
         200. + 50 * cos(stepper.stepZeroTime * 0.1),
-        127. + 127. * cos(stepper.stepZeroTime* 0.0001));
+        127. + 127. * cos(stepper.stepZeroTime* 0.0001));*/
+    content.saturation = ofLerp(content.saturation, ofMap(receiver.getBigwigLevel(), 40, 256, 0, 1), .2);
+    content.brightness = 1;
+
+    content.externalTime = stepper.stepZeroTime;
+    content.baseColor = ofColor::fromHsb(content.externalTime * 255, 255, 255);
 	content.update(stepper, mouse);
 
 	previousMicroseconds = microseconds;
@@ -127,7 +133,7 @@ void ofApp::draw() {
 	cam.begin();
 	content.render();
 	// Debug Info
-	ofDrawAxis(0.1);
+	//ofDrawAxis(0.1);
 	for (ofNode n : nodes) {
 		n.draw();
 	}
@@ -175,8 +181,8 @@ void ofApp::keyPressed(int key) {
 	case OF_KEY_BACKSPACE:
 		content.terminateMainGesture();
 		break;
+    case OF_KEY_F9:
 	case OF_KEY_SHIFT:
-		break;
 	case OF_KEY_RIGHT_SHIFT:
 		break;
 	case ' ':

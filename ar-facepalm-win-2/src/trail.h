@@ -35,12 +35,14 @@ public:
 
     // Update each particle
     void update(double deltaTime);
-    
+
+    // update the most recently added particle
     void updateLast(double deltaTime);
 
     // Add a single particle, and update with deltaTime. Calls ofGetStyle for color.
     void add(ofVec3f pos, double size);
 
+    // Is playback complete?
     bool isDead();
 };
 

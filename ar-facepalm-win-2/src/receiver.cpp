@@ -88,6 +88,14 @@ void Receiver::threadedFunction() {
                 lock();
                 delay = m.getArgAsFloat(0);
                 unlock();
+            } else if (addr == "/transport/position") {
+                lock();
+                bitwigPosition = m.getArgAsDouble(0);
+                unlock();
+            } else if (addr == "/track/master/meter") {
+                lock();
+                bitwigLevel = m.getArgAsInt(0);
+                unlock();
             }
         }
         ofSleepMillis(1);
@@ -153,4 +161,20 @@ Orientation7 Receiver::getPreviousCameraTrigger() {
 	result = previousCameraTrigger;
 	unlock();
 	return result;
+}
+
+double Receiver::getBigwigPosition() {
+    double result;
+    lock();
+    result = bitwigPosition;
+    unlock();
+    return result;
+}
+
+int Receiver::getBigwigLevel() {
+    int result;
+    lock();
+    result = bitwigLevel;
+    unlock();
+    return result;
 }
