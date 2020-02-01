@@ -14,7 +14,7 @@ void Receiver::threadedFunction() {
             ofxOscMessage m;
             oscReceiver.getNextMessage(m);
             auto addr = m.getAddress();
-            if (addr == "/tracker/0" || addr == "/controller/1") {
+            if (addr == "/tracker/1" || addr == "/controller/2") {
                 lock();
                 // Convert the message to 3d vector and a quaternion
                 ofVec3f pos = ofVec3f(m.getArgAsFloat(0) * scale,
@@ -50,12 +50,12 @@ void Receiver::threadedFunction() {
                 Orientation7 result;
                 result.pos = camera.getGlobalPosition();
                 result.quat = camera.getGlobalOrientation();
-				result.trigger = m.getArgAsFloat(7);
+				result.trigger = (m.getNumArgs() >= 8) ? m.getArgAsFloat(7) : 1.0;
 
                 double time = static_cast<double>(ofGetElapsedTimeMicros() * 0.000001);
                 cameraMessages.add(time, result);
                 unlock();
-            } else if (addr == "/controller/0") {
+            } else if (addr == "/controller/1") {
                 lock();
                 ofVec3f pos = ofVec3f(m.getArgAsFloat(0) * scale,
                                       m.getArgAsFloat(1) * scale,
@@ -74,7 +74,7 @@ void Receiver::threadedFunction() {
 
                 controllerState.pos = pointer.getGlobalPosition();
                 controllerState.quat = pointer.getGlobalOrientation();
-                controllerState.trigger = m.getArgAsFloat(7);
+                controllerState.trigger = (m.getNumArgs() >= 8) ? m.getArgAsFloat(7) : 0.f;
                 unlock();
             } else if (addr == "/fov") {
                 lock();

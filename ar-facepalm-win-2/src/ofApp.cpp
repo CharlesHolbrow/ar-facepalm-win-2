@@ -120,15 +120,15 @@ void ofApp::draw() {
 	ofSetColor(255);
 
 	// DEBUG: info about our camera
-	//ofVec3f cPos = cam.getPosition();
-	//char str[100];
-	//sprintf_s(str, "Camera: % 4.2f % 4.2f % 4.2f\tp:% 4.0f y:% 4.0f r:% 4.0f",
-	//	cPos.x, cPos.y, cPos.z,
-	//	cam.getPitchDeg(),
-	//	cam.getHeadingDeg(),
-	//	cam.getRollDeg());
-	//ofSetColor(255, 0, 0);
-	//ofDrawBitmapString(str, 2, 12);
+	ofVec3f cPos = cam.getPosition();
+	char str[100];
+	sprintf_s(str, "Camera: % 4.2f % 4.2f % 4.2f\tp:% 4.0f y:% 4.0f r:% 4.0f",
+		cPos.x, cPos.y, cPos.z,
+		cam.getPitchDeg(),
+		cam.getHeadingDeg(),
+		cam.getRollDeg());
+	ofSetColor(255, 0, 0);
+	ofDrawBitmapString(str, 2, 12);
 
 	cam.begin();
 	content.render();
